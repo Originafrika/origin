@@ -24,21 +24,22 @@ const StorySection = () => {
           {/* Story narrative */}
           <div className="space-y-6 text-base md:text-lg leading-relaxed max-w-3xl mx-auto animate-fade-in-up">
             <p className="text-background/90">
-              Il était une fois des développeurs isolés, dispersés à travers le continent, 
-              rêvant de créer mais limités par le manque d'accès aux outils avancés.
+              Nous étions souvent incompris et rejetés. Notre différence dérangeait. 
+              Mais dans cette solitude, nous avons touché le fond et vu la réalité : 
+              l'Afrique freinée par le manque de moyens et d'accès aux technologies.
             </p>
             <p className="text-background/90">
-              Puis une <span className="font-bold text-background">flamme</span> s'est allumée. 
-              Un laboratoire est né — ORIGIN — où l'intelligence artificielle n'est plus un privilège 
-              réservé à quelques-uns, mais un droit accessible à tous les visionnaires.
+              Une <span className="font-bold text-background">flamme</span> s'est allumée. 
+              Nous avons choisi de transformer la douleur en force, la différence en arme. 
+              Nous avons choisi ORIGIN. Nous avons choisi de libérer l'Afrique.
             </p>
             <p className="text-background/90">
+              Aujourd'hui, chaque visionnaire peut rejoindre ce mouvement et créer l'avenir. 
               Cette flamme a libéré les esprits créatifs. Elle a connecté les talents. 
               Elle a donné naissance à des projets qui transforment l'Afrique.
             </p>
             <p className="font-semibold text-xl md:text-2xl text-background">
-              Aujourd'hui, cette flamme brûle plus fort que jamais. 
-              Et elle attend que vous la rejoigniez.
+              La flamme brûle plus fort que jamais. Et elle attend que vous la rejoigniez.
             </p>
           </div>
 

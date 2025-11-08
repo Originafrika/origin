@@ -34,14 +34,14 @@ const ProblemSection = () => {
           {/* Storytelling */}
           <div className="prose prose-lg max-w-3xl mx-auto text-muted-foreground animate-fade-in-up">
             <p className="text-base md:text-lg leading-relaxed">
-              Pendant trop longtemps, les innovateurs africains ont été contraints de regarder 
-              le monde technologique avancer sans eux. Isolés, privés des outils de pointe, 
-              et forcés de dépendre de solutions qui ne comprennent pas leur réalité.
+              Pendant trop longtemps, les développeurs africains ont été privés d'accès aux 
+              meilleures technologies. Les infrastructures limitées, le coût des outils SOTA 
+              et la dépendance aux solutions étrangères ont freiné l'innovation locale.
             </p>
             <p className="text-base md:text-lg leading-relaxed mt-4">
-              Mais l'histoire est en train de changer. Une nouvelle génération de visionnaires 
-              refuse d'accepter cette situation. Ils méritent plus qu'un simple accès — 
-              ils méritent la souveraineté technologique.
+              Chez ORIGIN, nous avons choisi de transformer ce manque en opportunité. Nous avons 
+              bâti un laboratoire indépendant, pensé pour l'Afrique, où chaque visionnaire peut 
+              créer, expérimenter et exceller.
             </p>
           </div>
 
@@ -66,7 +66,7 @@ const ProblemSection = () => {
           {/* Transition text */}
           <div className="pt-8 animate-fade-in">
             <p className="text-xl md:text-2xl font-semibold text-foreground">
-              C'est là qu'ORIGIN intervient
+              ORIGIN n'est pas juste un labo : c'est le tremplin vers votre futur, votre liberté technologique, votre légende africaine.
             </p>
           </div>
         </div>
