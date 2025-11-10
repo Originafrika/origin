@@ -7,20 +7,20 @@ const Footer = () => {
 
   const links = {
     product: [
+      { label: "Projets", href: "/projects" },
       { label: "Outils IA", href: "#tools" },
       { label: "Formation", href: "#training" },
       { label: "Communauté", href: "#community" },
-      { label: "Projets", href: "#projects" },
     ],
     resources: [
+      { label: "Blog", href: "/blog" },
       { label: "Documentation", href: "#docs" },
-      { label: "Blog", href: "#blog" },
       { label: "Guides", href: "#guides" },
       { label: "FAQ", href: "#faq" },
     ],
     company: [
-      { label: "À propos", href: "#about" },
-      { label: "Contact", href: "#contact" },
+      { label: "À propos", href: "/about" },
+      { label: "Contact", href: "/contact" },
       { label: "Carrières", href: "#careers" },
       { label: "Partenaires", href: "#partners" },
     ],
