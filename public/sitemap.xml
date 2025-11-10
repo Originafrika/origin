@@ -4,60 +4,66 @@
     <loc>https://origin.africa/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-10</lastmod>
   </url>
   <url>
     <loc>https://origin.africa/about</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-10</lastmod>
   </url>
   <url>
     <loc>https://origin.africa/projects</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-10</lastmod>
   </url>
   <url>
     <loc>https://origin.africa/projects/cortexia</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-10</lastmod>
   </url>
   <url>
     <loc>https://origin.africa/projects/code</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-10</lastmod>
   </url>
   <url>
     <loc>https://origin.africa/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-10</lastmod>
   </url>
   <url>
     <loc>https://origin.africa/blog/pourquoi-afrique-doit-creer-ia</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-10</lastmod>
   </url>
   <url>
     <loc>https://origin.africa/blog/defis-accessibilite-ia-startups-africaines</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-10</lastmod>
   </url>
   <url>
     <loc>https://origin.africa/blog/origin-democratiser-sota-ia-afrique</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-10</lastmod>
+  </url>
+  <url>
+    <loc>https://origin.africa/blog/decouverte-cortexia-ia-creative</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-11-10</lastmod>
   </url>
   <url>
     <loc>https://origin.africa/contact</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2025-11-09</lastmod>
+    <lastmod>2025-11-10</lastmod>
   </url>
 </urlset>

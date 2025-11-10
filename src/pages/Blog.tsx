@@ -9,6 +9,14 @@ const Blog = () => {
   const [articles] = useState([
     {
       id: 1,
+      title: "Découverte de Cortexia : L'IA créative qui redéfinit l'art africain",
+      excerpt: "Plongez dans l'univers de Cortexia, la plateforme révolutionnaire qui fusionne intelligence artificielle et créativité artistique.",
+      date: "2025-11-10",
+      author: "Équipe ORIGIN",
+      slug: "decouverte-cortexia-ia-creative"
+    },
+    {
+      id: 2,
       title: "Pourquoi l'Afrique doit créer sa propre IA ?",
       excerpt: "L'Afrique a des défis uniques qui nécessitent des solutions d'IA adaptées à ses réalités locales.",
       date: "2025-11-01",
@@ -16,7 +24,7 @@ const Blog = () => {
       slug: "pourquoi-afrique-doit-creer-ia"
     },
     {
-      id: 2,
+      id: 3,
       title: "Les défis de l'accessibilité à l'IA pour les startups africaines",
       excerpt: "Identifier et surmonter les obstacles qui empêchent les startups africaines d'accéder à l'intelligence artificielle de pointe.",
       date: "2025-10-25",
@@ -24,7 +32,7 @@ const Blog = () => {
       slug: "defis-accessibilite-ia-startups-africaines"
     },
     {
-      id: 3,
+      id: 4,
       title: "Comment ORIGIN démocratise l'accès au SOTA en Afrique",
       excerpt: "Découvrez comment notre laboratoire rend l'état de l'art en IA accessible aux innovateurs africains.",
       date: "2025-10-18",

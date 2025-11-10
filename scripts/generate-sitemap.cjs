@@ -15,6 +15,7 @@ const routes = [
   '/blog/pourquoi-afrique-doit-creer-ia',
   '/blog/defis-accessibilite-ia-startups-africaines',
   '/blog/origin-democratiser-sota-ia-afrique',
+  '/blog/decouverte-cortexia-ia-creative',
   '/contact'
   // Add more routes as you create them
 ];
