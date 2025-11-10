@@ -17,11 +17,15 @@ const Hero = () => {
               src={logoLight} 
               alt="ORIGIN - Laboratoire IA panafricain de référence" 
               className="w-full h-full object-contain dark:hidden"
+              width="160"
+              height="160"
             />
             <img 
               src={logoDark} 
               alt="ORIGIN - Laboratoire IA panafricain de référence" 
               className="w-full h-full object-contain hidden dark:block"
+              width="160"
+              height="160"
             />
           </div>
 
