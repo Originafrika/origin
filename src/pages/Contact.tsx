@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, Mail, MapPin, Twitter } from "lucide-react";
+import { Facebook, Github, Instagram, Linkedin, Mail, MapPin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -14,11 +14,11 @@ const Contact = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "ORIGIN",
-    "url": "https://origin.africa",
+    "url": "https://originafrika.com",
     "description": t("about.description"),
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": "contact@origin.africa",
+      "email": "contact@originafrika.com",
       "contactType": "customer support"
     },
     "sameAs": [
@@ -32,21 +32,22 @@ const Contact = () => {
     {
       icon: Mail,
       title: "email",
-      value: "contact@origin.africa",
+      value: "contact@originafrika.com",
       description: t("contact.email.description")
     },
     {
       icon: MapPin,
       title: "address",
-      value: "Dakar, Sénégal",
+      value: "Lomé, Togo",
       description: t("contact.address.description")
     }
   ];
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" }
+    { icon: Facebook, href: "https://www.facebook.com/share/19je91pEAi/?mibextid=wwXIfr", label: "Facebook" },
+    { icon: Instagram, href: "https://www.instagram.com/Origin__Afrika", label: "Instagram" },
+    { icon: Twitter, href: "https://x.com/Origin__Afrika", label: "X" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/origin-afrika?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", label: "LinkedIn" }
   ];
 
   return (
@@ -169,6 +170,8 @@ const Contact = () => {
                       <a
                         key={index}
                         href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-12 h-12 rounded-full bg-muted hover:bg-muted/80 flex items-center justify-center transition-colors"
                         aria-label={social.label}
                       >

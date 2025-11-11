@@ -70,11 +70,6 @@ const HeroContent = () => {
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1 flex-shrink-0" />
             </Button>
           </div>
-
-          {/* Social proof */}
-          <p className="text-xs sm:text-sm md:text-base text-muted-foreground pt-4 sm:pt-8 animate-fade-in px-4">
-            Déjà <span className="font-semibold text-foreground">500 développeurs africains</span> rejoignent notre mouvement chaque mois
-          </p>
         </div>
       </div>
 

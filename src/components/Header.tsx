@@ -2,15 +2,17 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X, Languages } from "lucide-react";
+import { Menu, X, Languages, Sun, Moon } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 import logoLight from "@/assets/logo-light.jpg";
 import logoDark from "@/assets/logo-dark.jpg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   
   const navLinks = [
     { name: t("nav.home"), path: "/" },
@@ -54,7 +56,7 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Language Switcher and CTA Button */}
+        {/* Language Switcher, Theme Toggle, and CTA Button */}
         <div className="hidden md:flex items-center space-x-4">
           <Button 
             variant="ghost" 
@@ -64,6 +66,15 @@ const Header = () => {
           >
             <Languages className="h-4 w-4" />
             <span>{language === "fr" ? "EN" : "FR"}</span>
+          </Button>
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="flex items-center gap-2"
+            onClick={toggleTheme}
+          >
+            {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+            <span className="sr-only">Toggle theme</span>
           </Button>
           <Button size="sm">{t("nav.join")}</Button>
         </div>
@@ -124,7 +135,7 @@ const Header = () => {
                 ))}
               </nav>
 
-              {/* Language Switcher and Mobile CTA */}
+              {/* Language Switcher, Theme Toggle, and Mobile CTA */}
               <div className="py-6 border-t space-y-4">
                 <Button 
                   variant="outline" 
@@ -136,6 +147,17 @@ const Header = () => {
                 >
                   <Languages className="h-4 w-4" />
                   <span>{language === "fr" ? "Switch to English" : "Passer en français"}</span>
+                </Button>
+                <Button 
+                  variant="outline" 
+                  className="w-full flex items-center gap-2"
+                  onClick={() => {
+                    toggleTheme();
+                    setIsOpen(false);
+                  }}
+                >
+                  {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+                  <span>{theme === "light" ? "Dark Mode" : "Light Mode"}</span>
                 </Button>
                 <Button className="w-full" onClick={() => setIsOpen(false)}>
                   {t("nav.join")}
