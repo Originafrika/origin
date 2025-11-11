@@ -2,20 +2,22 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Languages } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
+import { useLanguage } from "@/contexts/LanguageContext";
 import logoLight from "@/assets/logo-light.jpg";
 import logoDark from "@/assets/logo-dark.jpg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
   
   const navLinks = [
-    { name: "Accueil", path: "/" },
-    { name: "À propos", path: "/about" },
-    { name: "Projets", path: "/projects" },
-    { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.projects"), path: "/projects" },
+    { name: t("nav.blog"), path: "/blog" },
+    { name: t("nav.contact"), path: "/contact" },
   ];
 
   return (
@@ -52,9 +54,18 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
-          <Button size="sm">Rejoindre la communauté</Button>
+        {/* Language Switcher and CTA Button */}
+        <div className="hidden md:flex items-center space-x-4">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="flex items-center gap-2"
+            onClick={() => setLanguage(language === "fr" ? "en" : "fr")}
+          >
+            <Languages className="h-4 w-4" />
+            <span>{language === "fr" ? "EN" : "FR"}</span>
+          </Button>
+          <Button size="sm">{t("nav.join")}</Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -113,9 +124,22 @@ const Header = () => {
                 ))}
               </nav>
 
-              {/* Mobile CTA */}
-              <div className="py-6 border-t">
-                <Button className="w-full">Rejoindre la communauté</Button>
+              {/* Language Switcher and Mobile CTA */}
+              <div className="py-6 border-t space-y-4">
+                <Button 
+                  variant="outline" 
+                  className="w-full flex items-center gap-2"
+                  onClick={() => {
+                    setLanguage(language === "fr" ? "en" : "fr");
+                    setIsOpen(false);
+                  }}
+                >
+                  <Languages className="h-4 w-4" />
+                  <span>{language === "fr" ? "Switch to English" : "Passer en français"}</span>
+                </Button>
+                <Button className="w-full" onClick={() => setIsOpen(false)}>
+                  {t("nav.join")}
+                </Button>
               </div>
             </div>
           </SheetContent>

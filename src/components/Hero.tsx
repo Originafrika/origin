@@ -1,9 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import logoLight from "@/assets/logo-light.jpg";
 import logoDark from "@/assets/logo-dark.jpg";
 
-const Hero = () => {
+const HeroContent = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Gradient overlay */}
@@ -31,28 +34,39 @@ const Hero = () => {
 
           {/* Main headline */}
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-5xl leading-tight px-2">
-            Nous n'avons de limite{" "}
-            <span className="block mt-1 sm:mt-2">que l'infini</span>
+            {t("hero.title")}
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-3xl font-light px-2">
-            ORIGIN, le laboratoire IA panafricain de référence
+            {t("hero.subtitle")}
           </p>
 
           {/* Description */}
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed px-4">
-            La technologie de pointe, accessible à tous les visionnaires africains. 
-            Rejoignez le mouvement qui transforme l'Afrique en leader mondial de l'innovation.
-          </p>
+          <div className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed px-4 space-y-4">
+            <p>
+              {t("hero.description1")}
+            </p>
+            <p>
+              {t("hero.description2")}
+            </p>
+          </div>
 
-          {/* CTA Button */}
-          <div className="pt-2 sm:pt-4 px-4 w-full sm:w-auto">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 px-4 w-full sm:w-auto">
             <Button 
               size="lg" 
               className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 hover-lift group w-full sm:w-auto"
             >
-              <span className="text-center">Rejoignez la communauté des Visionnaires</span>
+              <span className="text-center">{t("hero.cta.primary")}</span>
+              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1 flex-shrink-0" />
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="text-sm sm:text-base md:text-lg px-6 sm:px-8 py-5 sm:py-6 hover-lift group w-full sm:w-auto"
+            >
+              <span className="text-center">{t("hero.cta.secondary")}</span>
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1 flex-shrink-0" />
             </Button>
           </div>
@@ -68,6 +82,10 @@ const Hero = () => {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
     </section>
   );
+};
+
+const Hero = () => {
+  return <HeroContent />;
 };
 
 export default Hero;

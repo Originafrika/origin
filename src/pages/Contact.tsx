@@ -5,15 +5,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail, MapPin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
   // Structured data for Contact page
   const organizationSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "ORIGIN",
     "url": "https://origin.africa",
-    "description": "Premier laboratoire d'intelligence artificielle indépendant en Afrique",
+    "description": t("about.description"),
     "contactPoint": {
       "@type": "ContactPoint",
       "email": "contact@origin.africa",
@@ -29,15 +31,15 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: "Email",
+      title: "email",
       value: "contact@origin.africa",
-      description: "Pour toute demande de partenariat ou collaboration"
+      description: t("contact.email.description")
     },
     {
       icon: MapPin,
-      title: "Adresse",
+      title: "address",
       value: "Dakar, Sénégal",
-      description: "Siège du laboratoire ORIGIN"
+      description: t("contact.address.description")
     }
   ];
 
@@ -50,17 +52,17 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Contact ORIGIN — Laboratoire IA en Afrique"
-        description="Contactez le laboratoire ORIGIN pour toute collaboration, projet ou partenariat autour de l'intelligence artificielle en Afrique."
+        title={t("contact.title")}
+        description={t("contact.subtitle")}
         keywords="contact IA Afrique, partenariat IA, laboratoire africain IA, ORIGIN"
-        ogTitle="Contact ORIGIN — Laboratoire IA en Afrique"
-        ogDescription="Contactez le laboratoire ORIGIN pour toute collaboration, projet ou partenariat autour de l'intelligence artificielle en Afrique."
+        ogTitle={t("contact.title")}
+        ogDescription={t("contact.subtitle")}
         ogImage="https://lovable.dev/opengraph-image-p98pqg.png"
         ogUrl="https://origin.africa/contact"
         ogType="website"
         twitterCard="summary_large_image"
-        twitterTitle="Contact ORIGIN — Laboratoire IA en Afrique"
-        twitterDescription="Contactez le laboratoire ORIGIN pour toute collaboration, projet ou partenariat autour de l'intelligence artificielle en Afrique."
+        twitterTitle={t("contact.title")}
+        twitterDescription={t("contact.subtitle")}
         twitterImage="https://lovable.dev/opengraph-image-p98pqg.png"
         canonicalUrl="https://origin.africa/contact"
         schema={organizationSchema}
@@ -69,9 +71,9 @@ const Contact = () => {
       <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20">
         {/* Hero Section */}
         <div className="text-center mb-16 sm:mb-20">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Contactez-nous</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">{t("contact.title")}</h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Une question ? Une idée ? Une collaboration ? Parlez-nous de votre vision.
+            {t("contact.subtitle")}
           </p>
         </div>
 
@@ -80,9 +82,9 @@ const Contact = () => {
           <div>
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl">Envoyez-nous un message</CardTitle>
+                <CardTitle className="text-2xl">{t("contact.form.title")}</CardTitle>
                 <CardDescription>
-                  Remplissez ce formulaire et notre équipe vous répondra dans les plus brefs délais.
+                  {t("contact.form.description")}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -90,38 +92,38 @@ const Contact = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
-                        Nom complet
+                        {t("contact.form.name")}
                       </label>
-                      <Input id="name" placeholder="Votre nom" />
+                      <Input id="name" placeholder={t("contact.form.name.placeholder")} />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium mb-2">
-                        Email
+                        {t("contact.form.email")}
                       </label>
-                      <Input id="email" type="email" placeholder="votre@email.com" />
+                      <Input id="email" type="email" placeholder={t("contact.form.email.placeholder")} />
                     </div>
                   </div>
                   
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                      Sujet
+                      {t("contact.form.subject")}
                     </label>
-                    <Input id="subject" placeholder="Sujet de votre message" />
+                    <Input id="subject" placeholder={t("contact.form.subject.placeholder")} />
                   </div>
                   
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Message
+                      {t("contact.form.message")}
                     </label>
                     <Textarea 
                       id="message" 
-                      placeholder="Décrivez votre projet, idée ou question..." 
+                      placeholder={t("contact.form.message.placeholder")} 
                       rows={5}
                     />
                   </div>
                   
                   <Button type="submit" className="w-full">
-                    Envoyer le message
+                    {t("contact.form.submit")}
                   </Button>
                 </form>
               </CardContent>
@@ -133,9 +135,9 @@ const Contact = () => {
             <div className="space-y-8">
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Informations de contact</CardTitle>
+                  <CardTitle className="text-2xl">{t("contact.info.title")}</CardTitle>
                   <CardDescription>
-                    Vous pouvez également nous contacter directement via les canaux ci-dessous.
+                    {t("contact.info.description")}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -145,9 +147,9 @@ const Contact = () => {
                         <info.icon className="h-5 w-5" />
                       </div>
                       <div>
-                        <h3 className="font-semibold">{info.title}</h3>
+                        <h3 className="font-semibold">{t(`contact.${info.title}`)}</h3>
                         <p className="font-medium">{info.value}</p>
-                        <p className="text-sm text-muted-foreground">{info.description}</p>
+                        <p className="text-sm text-muted-foreground">{t(`contact.${info.title}.description`)}</p>
                       </div>
                     </div>
                   ))}
@@ -156,9 +158,9 @@ const Contact = () => {
 
               <Card>
                 <CardHeader>
-                  <CardTitle className="text-2xl">Suivez-nous</CardTitle>
+                  <CardTitle className="text-2xl">{t("contact.follow")}</CardTitle>
                   <CardDescription>
-                    Restez informé de nos dernières actualités et projets.
+                    {t("contact.follow.description")}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -178,13 +180,12 @@ const Contact = () => {
               </Card>
 
               <div className="bg-muted rounded-2xl p-6 sm:p-8">
-                <h3 className="text-xl font-bold mb-4">Partenariats et Collaborations</h3>
+                <h3 className="text-xl font-bold mb-4">{t("contact.partnerships")}</h3>
                 <p className="text-muted-foreground mb-6">
-                  Vous représentez une institution, une startup ou une organisation intéressée par 
-                  un partenariat avec ORIGIN ? Contactez notre équipe dédiée aux partenariats.
+                  {t("contact.partnerships.text")}
                 </p>
                 <Button variant="outline" asChild>
-                  <Link to="/partners">En savoir plus</Link>
+                  <Link to="/partners">{t("contact.partnerships.cta")}</Link>
                 </Button>
               </div>
             </div>

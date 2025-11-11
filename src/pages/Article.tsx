@@ -1,8 +1,10 @@
 import { useParams } from "react-router-dom";
 import SEO from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Article = () => {
   const { slug } = useParams();
+  const { t } = useLanguage();
   
   // In a real app, this would come from an API or CMS
   const articles = {

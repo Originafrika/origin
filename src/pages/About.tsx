@@ -3,15 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Target, Users, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
   // Structured data for About page
   const organizationSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "ORIGIN",
     "url": "https://origin.africa",
-    "description": "Premier laboratoire d'intelligence artificielle indépendant en Afrique",
+    "description": t("about.description"),
     "sameAs": [
       "https://linkedin.com/company/origin",
       "https://twitter.com/ORIGIN",
@@ -22,17 +24,17 @@ const About = () => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="À propos d'ORIGIN — Laboratoire d'IA africain indépendant"
-        description="Découvrez la mission, la vision et les valeurs du premier laboratoire d'intelligence artificielle indépendant en Afrique."
+        title={t("about.title")}
+        description={t("about.subtitle")}
         keywords="à propos IA Afrique, vision IA, laboratoire africain IA, ORIGIN"
-        ogTitle="À propos d'ORIGIN — Laboratoire d'IA africain indépendant"
-        ogDescription="Découvrez la mission, la vision et les valeurs du premier laboratoire d'intelligence artificielle indépendant en Afrique."
+        ogTitle={t("about.title")}
+        ogDescription={t("about.subtitle")}
         ogImage="https://lovable.dev/opengraph-image-p98pqg.png"
         ogUrl="https://origin.africa/about"
         ogType="website"
         twitterCard="summary_large_image"
-        twitterTitle="À propos d'ORIGIN — Laboratoire d'IA africain indépendant"
-        twitterDescription="Découvrez la mission, la vision et les valeurs du premier laboratoire d'intelligence artificielle indépendant en Afrique."
+        twitterTitle={t("about.title")}
+        twitterDescription={t("about.subtitle")}
         twitterImage="https://lovable.dev/opengraph-image-p98pqg.png"
         canonicalUrl="https://origin.africa/about"
         schema={organizationSchema}
@@ -41,9 +43,9 @@ const About = () => {
       <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20">
         {/* Hero Section */}
         <div className="text-center mb-16 sm:mb-20">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">À propos d'ORIGIN</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">{t("about.title")}</h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Le premier laboratoire d'intelligence artificielle indépendant en Afrique
+            {t("about.subtitle")}
           </p>
         </div>
 
@@ -51,12 +53,10 @@ const About = () => {
         <div className="mb-16 sm:mb-20">
           <div className="bg-muted rounded-2xl p-6 sm:p-8 md:p-12">
             <blockquote className="text-2xl sm:text-3xl font-bold text-center italic mb-6">
-              "Nous étions incompris. Puis nous avons décidé de créer notre propre voie."
+              {t("about.intro.quote")}
             </blockquote>
             <p className="text-lg text-center max-w-3xl mx-auto">
-              Cette flamme née de la solitude et de la vision panafricaine est le cœur d'ORIGIN. 
-              Nous croyons qu'il est temps pour l'Afrique de créer sa propre intelligence artificielle, 
-              adaptée à ses réalités et tournée vers son avenir.
+              {t("about.intro.text")}
             </p>
           </div>
         </div>
@@ -65,18 +65,15 @@ const About = () => {
         <div className="mb-16 sm:mb-20">
           <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-12">
             <div className="flex-1">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4">Notre Mission</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4">{t("about.mission")}</h2>
               <p className="text-lg sm:text-xl mb-6">
-                Rendre l'IA accessible aux réalités africaines.
+                {t("about.mission.text")}
               </p>
               <p className="text-muted-foreground mb-6">
-                Nous développons des solutions d'intelligence artificielle conçues spécifiquement 
-                pour les défis et les opportunités du continent africain. Notre objectif est de 
-                démocratiser l'accès à l'IA de pointe pour les startups, les chercheurs et les 
-                institutions africaines.
+                {t("about.mission.description")}
               </p>
               <Button asChild>
-                <Link to="/projects">Découvrir nos projets</Link>
+                <Link to="/projects">{t("projects.cta")}</Link>
               </Button>
             </div>
             <div className="flex-1 flex justify-center">
@@ -91,16 +88,16 @@ const About = () => {
 
         {/* Values Section */}
         <div className="mb-16 sm:mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Nos Valeurs</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">{t("about.values")}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <Card>
               <CardHeader>
                 <Zap className="h-10 w-10 mb-4 text-primary" />
-                <CardTitle>Audace</CardTitle>
+                <CardTitle>{t("about.values.audacity")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Nous défions les conventions pour créer des solutions révolutionnaires.
+                  {t("about.values.audacity.description")}
                 </CardDescription>
               </CardContent>
             </Card>
@@ -108,11 +105,11 @@ const About = () => {
             <Card>
               <CardHeader>
                 <Target className="h-10 w-10 mb-4 text-primary" />
-                <CardTitle>Innovation</CardTitle>
+                <CardTitle>{t("about.values.innovation")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Nous repoussons les limites de l'IA pour servir les réalités africaines.
+                  {t("about.values.innovation.description")}
                 </CardDescription>
               </CardContent>
             </Card>
@@ -120,11 +117,11 @@ const About = () => {
             <Card>
               <CardHeader>
                 <Users className="h-10 w-10 mb-4 text-primary" />
-                <CardTitle>Service</CardTitle>
+                <CardTitle>{t("about.values.service")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Nous mettons nos compétences au service de la communauté africaine.
+                  {t("about.values.service.description")}
                 </CardDescription>
               </CardContent>
             </Card>
@@ -132,11 +129,11 @@ const About = () => {
             <Card>
               <CardHeader>
                 <div className="h-10 w-10 mb-4 text-primary flex items-center justify-center font-bold text-xl">E</div>
-                <CardTitle>Excellence</CardTitle>
+                <CardTitle>{t("about.values.excellence")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  Nous aspirons à l'excellence dans chaque projet et chaque interaction.
+                  {t("about.values.excellence.description")}
                 </CardDescription>
               </CardContent>
             </Card>
@@ -146,15 +143,13 @@ const About = () => {
         {/* Team Section */}
         <div className="mb-16 sm:mb-20">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Notre Équipe</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">{t("about.team")}</h2>
             <p className="text-lg mb-8">
-              ORIGIN est né de la rencontre de visionnaires africains passionnés par la technologie. 
-              Notre collectif rassemble des chercheurs, développeurs et innovateurs déterminés à 
-              faire de l'Afrique un leader mondial en intelligence artificielle.
+              {t("about.team.text")}
             </p>
             <div className="bg-muted rounded-2xl p-8">
               <p className="text-xl italic">
-                "Chez ORIGIN, nous croyons que l'avenir de l'IA se construit en Afrique, par les Africains, pour l'Afrique."
+                {t("about.team.quote")}
               </p>
             </div>
           </div>

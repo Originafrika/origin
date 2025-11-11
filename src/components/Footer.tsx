@@ -1,28 +1,30 @@
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import logoLight from "@/assets/logo-light.jpg";
 import logoDark from "@/assets/logo-dark.jpg";
 
-const Footer = () => {
+const FooterContent = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   const links = {
     product: [
-      { label: "Projets", href: "/projects" },
-      { label: "Outils IA", href: "#tools" },
-      { label: "Formation", href: "#training" },
-      { label: "Communauté", href: "#community" },
+      { label: t("footer.projects"), href: "/projects" },
+      { label: t("footer.tools"), href: "#tools" },
+      { label: t("footer.training"), href: "#training" },
+      { label: t("footer.community"), href: "#community" },
     ],
     resources: [
       { label: "Blog", href: "/blog" },
-      { label: "Documentation", href: "#docs" },
-      { label: "Guides", href: "#guides" },
-      { label: "FAQ", href: "#faq" },
+      { label: t("footer.documentation"), href: "#docs" },
+      { label: t("footer.guides"), href: "#guides" },
+      { label: t("footer.faq"), href: "#faq" },
     ],
     company: [
-      { label: "À propos", href: "/about" },
+      { label: t("footer.about"), href: "/about" },
       { label: "Contact", href: "/contact" },
-      { label: "Carrières", href: "#careers" },
-      { label: "Partenaires", href: "#partners" },
+      { label: t("footer.careers"), href: "#careers" },
+      { label: t("footer.partners"), href: "#partners" },
     ],
   };
 
@@ -47,8 +49,7 @@ const Footer = () => {
               />
             </div>
             <p className="text-background/80 text-xs sm:text-sm leading-relaxed max-w-sm">
-              Le premier laboratoire IA indépendant africain. 
-              Nous donnons aux visionnaires africains les outils pour innover sans limite.
+              {t("footer.description")}
             </p>
             <div className="flex gap-3 sm:gap-4">
               {socialLinks.map((social) => (
@@ -66,7 +67,7 @@ const Footer = () => {
 
           {/* Links columns */}
           <div>
-            <h3 className="font-semibold mb-3 sm:mb-4 text-background text-sm sm:text-base">Produit</h3>
+            <h3 className="font-semibold mb-3 sm:mb-4 text-background text-sm sm:text-base">{t("footer.product")}</h3>
             <ul className="space-y-2 sm:space-y-3">
               {links.product.map((link) => (
                 <li key={link.label}>
@@ -82,7 +83,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-3 sm:mb-4 text-background text-sm sm:text-base">Ressources</h3>
+            <h3 className="font-semibold mb-3 sm:mb-4 text-background text-sm sm:text-base">{t("footer.resources")}</h3>
             <ul className="space-y-2 sm:space-y-3">
               {links.resources.map((link) => (
                 <li key={link.label}>
@@ -98,7 +99,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-3 sm:mb-4 text-background text-sm sm:text-base">Entreprise</h3>
+            <h3 className="font-semibold mb-3 sm:mb-4 text-background text-sm sm:text-base">{t("footer.company")}</h3>
             <ul className="space-y-2 sm:space-y-3">
               {links.company.map((link) => (
                 <li key={link.label}>
@@ -118,16 +119,20 @@ const Footer = () => {
         <div className="pt-6 sm:pt-8 border-t border-background/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
             <p className="text-background/60 text-xs sm:text-sm text-center md:text-left">
-              © {currentYear} ORIGIN. Tous droits réservés.
+              {t("footer.copyright").replace('{year}', currentYear.toString())}
             </p>
             <p className="text-background/80 text-xs sm:text-sm font-medium text-center md:text-right italic px-2">
-              Chez ORIGIN, l'innovation n'a pas de limite. Soyez acteur de l'histoire africaine de la tech.
+              {t("footer.tagline")}
             </p>
           </div>
         </div>
       </div>
     </footer>
   );
+};
+
+const Footer = () => {
+  return <FooterContent />;
 };
 
 export default Footer;
