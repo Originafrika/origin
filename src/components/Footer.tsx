@@ -24,7 +24,7 @@ const FooterContent = () => {
     { icon: Facebook, href: "https://www.facebook.com/share/19je91pEAi/?mibextid=wwXIfr", label: "Facebook" },
     { icon: Instagram, href: "https://www.instagram.com/Origin__Afrika", label: "Instagram" },
     { icon: Twitter, href: "https://x.com/Origin__Afrika", label: "X" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/origin-afrika?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/origin-afrika", label: "LinkedIn" },
   ];
 
   return (
