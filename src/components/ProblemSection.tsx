@@ -1,25 +1,29 @@
 import { AlertCircle, Globe, Users, TrendingDown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const problems = [
+const getProblems = (t: (key: string) => string) => [
   {
     icon: TrendingDown,
-    text: "Accès limité aux outils IA avancés",
+    text: t("problem.accessibility"),
   },
   {
     icon: Users,
-    text: "Manque de mentorat et de ressources contextualisées",
+    text: t("problem.mentorship"),
   },
   {
     icon: Globe,
-    text: "Dépendance technologique aux solutions étrangères",
+    text: t("problem.dependency"),
   },
   {
     icon: AlertCircle,
-    text: "Difficulté à transformer les idées en projets concrets",
+    text: t("problem.transformation"),
   },
 ];
 
-const ProblemSection = () => {
+const ProblemSectionContent = () => {
+  const { t } = useLanguage();
+  const problems = getProblems(t);
+  
   return (
     <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-muted/30">
       <div className="container px-4 sm:px-6 mx-auto">
@@ -27,22 +31,20 @@ const ProblemSection = () => {
           {/* Section title */}
           <div className="space-y-3 sm:space-y-4 animate-fade-in">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight px-2">
-              L'Afrique mérite sa place dans le futur de l'IA
+              {t("problem.title")}
             </h2>
           </div>
 
           {/* Storytelling */}
           <div className="prose prose-lg max-w-3xl mx-auto text-muted-foreground animate-fade-in-up px-2">
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed">
-              Pendant trop longtemps, les développeurs africains ont été privés d'accès aux 
-              meilleures technologies. Les infrastructures limitées, le coût des outils SOTA 
-              et la dépendance aux solutions étrangères ont freiné l'innovation locale.
-            </p>
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed mt-3 sm:mt-4">
-              Chez ORIGIN, nous avons choisi de transformer ce manque en opportunité. Nous avons 
-              bâti un laboratoire indépendant, pensé pour l'Afrique, où chaque visionnaire peut 
-              créer, expérimenter et exceller.
-            </p>
+            <div className="space-y-4">
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed">
+                {t("problem.description1")}
+              </p>
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed">
+                {t("problem.description2")}
+              </p>
+            </div>
           </div>
 
           {/* Problem list */}
@@ -66,13 +68,17 @@ const ProblemSection = () => {
           {/* Transition text */}
           <div className="pt-6 sm:pt-8 animate-fade-in px-2">
             <p className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground">
-              ORIGIN n'est pas juste un labo : c'est le tremplin vers votre futur, votre liberté technologique, votre légende africaine.
+              {t("problem.transition")}
             </p>
           </div>
         </div>
       </div>
     </section>
   );
+};
+
+const ProblemSection = () => {
+  return <ProblemSectionContent />;
 };
 
 export default ProblemSection;

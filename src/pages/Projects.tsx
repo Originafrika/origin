@@ -2,31 +2,29 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Projects = () => {
+  const { t } = useLanguage();
   // Structured data for Projects page
   const websiteSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Projets ORIGIN",
+    "name": t("projects.title"),
     "url": "https://origin.africa/projects",
-    "description": "Découvrez les initiatives technologiques d'ORIGIN : Cortexia, Code et d'autres projets d'intelligence artificielle conçus pour l'Afrique."
+    "description": t("projects.description")
   });
 
   // Note: You'll need to add actual image files to src/assets/projects/
   const projects = [
     {
       id: "cortexia",
-      title: "Cortexia",
-      description: "L'IA créative qui redéfinit la manière dont les Africains imaginent et partagent le beau.",
       status: "Actif",
       link: "/projects/cortexia",
       image: "/src/assets/projects/cortexia.png" // Add your actual image file
     },
     {
       id: "code",
-      title: "Code",
-      description: "Environnement simplifié pour développeurs africains avec outils d'IA intégrés.",
       status: "Actif",
       link: "/projects/code",
       image: "/src/assets/projects/code.jpg" // Add your actual image file
@@ -36,17 +34,17 @@ const Projects = () => {
   return (
     <div className="min-h-screen">
       <SEO 
-        title="Projets ORIGIN — Innovations IA créatives africaines"
-        description="Découvrez les projets innovants d'ORIGIN, notamment Cortexia, la plateforme IA créative qui redéfinit la manière dont les Africains imaginent et partagent le beau."
+        title={t("projects.title")}
+        description={t("projects.description")}
         keywords="projets IA Afrique, Cortexia, Code, innovation IA africaine, solutions IA créatives"
-        ogTitle="Projets ORIGIN — Innovations IA créatives africaines"
-        ogDescription="Découvrez les projets innovants d'ORIGIN, notamment Cortexia, la plateforme IA créative qui redéfinit la manière dont les Africains imaginent et partagent le beau."
+        ogTitle={t("projects.title")}
+        ogDescription={t("projects.description")}
         ogImage="https://lovable.dev/opengraph-image-p98pqg.png"
         ogUrl="https://origin.africa/projects"
         ogType="website"
         twitterCard="summary_large_image"
-        twitterTitle="Projets ORIGIN — Innovations IA créatives africaines"
-        twitterDescription="Découvrez les projets innovants d'ORIGIN, notamment Cortexia, la plateforme IA créative qui redéfinit la manière dont les Africains imaginent et partagent le beau."
+        twitterTitle={t("projects.title")}
+        twitterDescription={t("projects.description")}
         twitterImage="https://lovable.dev/opengraph-image-p98pqg.png"
         canonicalUrl="https://origin.africa/projects"
         schema={websiteSchema}
@@ -55,37 +53,35 @@ const Projects = () => {
       <div className="container mx-auto px-4 py-12 sm:py-16 md:py-20">
         {/* Hero Section */}
         <div className="text-center mb-16 sm:mb-20">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Nos Projets</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">{t("projects.title")}</h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Nos projets incarnent notre vision : une Afrique créatrice, autonome et technologiquement souveraine.
+            {t("projects.description")}
           </p>
         </div>
 
         {/* Intro Section */}
         <div className="bg-muted rounded-2xl p-6 sm:p-8 md:p-12 mb-16 sm:mb-20">
           <p className="text-lg sm:text-xl text-center max-w-3xl mx-auto">
-            Chaque projet d'ORIGIN est conçu pour répondre à un défi spécifique de l'écosystème 
-            technologique africain. Nous fusionnons créativité, technologie et intelligence artificielle 
-            pour créer des solutions qui redéfinissent les frontières de l'innovation.
+            {t("projects.intro")}
           </p>
         </div>
 
         {/* Projects Grid */}
         <div className="mb-16 sm:mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Projets Actifs</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">{t("projects.active")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {projects.map((project) => (
               <Card key={project.id} className="flex flex-col">
                 <CardHeader>
-                  <CardTitle className="text-xl sm:text-2xl">{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
+                  <CardTitle className="text-xl sm:text-2xl">{t(`projects.${project.id}.title`)}</CardTitle>
+                  <CardDescription>{t(`projects.${project.id}.description`)}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
                   <div className="bg-muted rounded-lg h-48 flex items-center justify-center mb-4 overflow-hidden">
                     {project.image ? (
                       <img 
                         src={project.image} 
-                        alt={`Aperçu du projet ${project.title}`}
+                        alt={`Aperçu du projet ${t(`projects.${project.id}.title`)}`}
                         className="w-full h-full object-cover"
                         onError={(e) => {
                           // Fallback to initial placeholder if image fails to load
@@ -93,9 +89,9 @@ const Projects = () => {
                           e.currentTarget.parentElement!.innerHTML = `
                             <div class="text-center">
                               <div class="bg-background rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2">
-                                <span class="text-2xl font-bold">${project.title.charAt(0)}</span>
+                                <span class="text-2xl font-bold">${t(`projects.${project.id}.title`).charAt(0)}</span>
                               </div>
-                              <span class="text-sm text-muted-foreground">Aperçu du projet</span>
+                              <span class="text-sm text-muted-foreground">{t("projects.preview")}</span>
                             </div>
                           `;
                         }}
@@ -103,9 +99,9 @@ const Projects = () => {
                     ) : (
                       <div className="text-center">
                         <div className="bg-background rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-2">
-                          <span className="text-2xl font-bold">{project.title.charAt(0)}</span>
+                          <span className="text-2xl font-bold">{t(`projects.${project.id}.title`).charAt(0)}</span>
                         </div>
-                        <span className="text-sm text-muted-foreground">Aperçu du projet</span>
+                        <span className="text-sm text-muted-foreground">{t("projects.preview")}</span>
                       </div>
                     )}
                   </div>
@@ -117,7 +113,7 @@ const Projects = () => {
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full">
-                    <Link to={project.link}>En savoir plus</Link>
+                    <Link to={project.link}>{t("projects.cta")}</Link>
                   </Button>
                 </CardFooter>
               </Card>
@@ -126,17 +122,16 @@ const Projects = () => {
           
           <div className="text-center mt-12">
             <Button variant="outline" size="lg">
-              Voir plus de projets
+              {t("projects.cta")}
             </Button>
           </div>
         </div>
 
         {/* Future Projects Section */}
         <div className="bg-muted rounded-2xl p-6 sm:p-8 md:p-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">Projets à Venir</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">{t("projects.upcoming")}</h2>
           <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-8">
-            Nous travaillons continuellement sur de nouvelles initiatives pour renforcer l'écosystème 
-            de l'IA en Afrique. Rejoignez notre communauté pour être informé de nos prochaines annonces.
+            {t("projects.intro")}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
             {[1, 2, 3].map((item) => (

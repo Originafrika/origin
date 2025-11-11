@@ -3,14 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Brain, Smartphone, Users, Shield, Wallet, Workflow } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Cortexia = () => {
+  const { t } = useLanguage();
+  
   // Structured data for Cortexia project
   const projectSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     "name": "Cortexia",
-    "description": "Plateforme IA créative d'Afrique qui fusionne intelligence artificielle et créativité.",
+    "description": t("projects.cortexia.description"),
     "url": "https://origin.africa/projects/cortexia",
     "creator": {
       "@type": "Organization",
@@ -21,60 +24,60 @@ const Cortexia = () => {
   const features = [
     {
       icon: Brain,
-      title: "Génération d'images IA intelligente",
-      description: "Cortexia comprend votre prompt et améliore automatiquement vos idées avec son moteur \"Cortexia Intelligence (CI)\"."
+      title: t("cortexia.features.intelligent-ai.title"),
+      description: t("cortexia.features.intelligent-ai.description")
     },
     {
       icon: Smartphone,
-      title: "Fil social immersif (style TikTok)",
-      description: "Explorez une infinité de créations d'artistes IA, engagez-vous avec la communauté via likes, commentaires et remixes."
+      title: t("cortexia.features.immersive-social.title"),
+      description: t("cortexia.features.immersive-social.description")
     },
     {
       icon: Wallet,
-      title: "Système de crédits flexible",
-      description: "Gratuit : 20–30 crédits mensuels | Payant : génération illimitée d'images et de vidéos"
+      title: t("cortexia.features.flexible-credits.title"),
+      description: t("cortexia.features.flexible-credits.description")
     },
     {
       icon: Workflow,
-      title: "Workflows de création avancés",
-      description: "Créez étape par étape, combinez des images et obtenez des résultats dignes d'un studio."
+      title: t("cortexia.features.advanced-workflows.title"),
+      description: t("cortexia.features.advanced-workflows.description")
     },
     {
       icon: Users,
-      title: "Réseau social complet",
-      description: "Profils créateurs, challenges, monétisation et commissions pour les artistes vérifiés."
+      title: t("cortexia.features.complete-social.title"),
+      description: t("cortexia.features.complete-social.description")
     },
     {
       icon: Shield,
-      title: "Sécurité et confidentialité",
-      description: "Données protégées, conversations chiffrées, authentification Supabase."
+      title: t("cortexia.features.security-privacy.title"),
+      description: t("cortexia.features.security-privacy.description")
     }
   ];
 
   const uxFeatures = [
-    "Conception mobile-first (PWA installable)",
-    "Navigation gestuelle fluide",
-    "Interface claire optimisée",
-    "Caching intelligent et performances élevées",
-    "Temps de chargement ultra rapide"
+    t("cortexia.ux.mobile-first"),
+    t("cortexia.ux.fluid-navigation"),
+    t("cortexia.ux.clear-interface"),
+    t("cortexia.ux.intelligent-caching"),
+    t("cortexia.ux.fast-loading")
   ];
 
   const valuePropositions = [
     {
-      target: "Créateurs occasionnels",
-      value: "Créez des œuvres professionnelles sans effort"
+      target: t("cortexia.value-propositions.casual-creators.target"),
+      value: t("cortexia.value-propositions.casual-creators.value")
     },
     {
-      target: "Artistes confirmés",
-      value: "Bâtissez une audience et monétisez vos créations"
+      target: t("cortexia.value-propositions.established-artists.target"),
+      value: t("cortexia.value-propositions.established-artists.value")
     },
     {
-      target: "Communautés",
-      value: "Collaborez, partagez et remixer les créations IA"
+      target: t("cortexia.value-propositions.communities.target"),
+      value: t("cortexia.value-propositions.communities.value")
     },
     {
-      target: "Entreprises",
-      value: "Produisez rapidement des visuels et concepts marketing"
+      target: t("cortexia.value-propositions.businesses.target"),
+      value: t("cortexia.value-propositions.businesses.value")
     }
   ];
 
@@ -84,17 +87,17 @@ const Cortexia = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO 
-        title="Cortexia – Plateforme IA créative d’Afrique | ORIGIN"
-        description="Découvrez Cortexia, la plateforme mobile-first africaine qui fusionne intelligence artificielle et créativité. Créez, partagez et découvrez l’art généré par IA."
-        keywords="Cortexia, IA créative, art généré par IA, IA en Afrique, ORIGIN, plateforme AI Afrique, intelligence artificielle pour créateurs, PWA AI Afrique"
-        ogTitle="Cortexia – L’IA créative africaine"
-        ogDescription="Cortexia est la première plateforme IA sociale africaine dédiée à la création artistique intelligente."
+        title={t("cortexia.seo.title")}
+        description={t("cortexia.seo.description")}
+        keywords={t("cortexia.seo.keywords")}
+        ogTitle={t("cortexia.seo.og-title")}
+        ogDescription={t("cortexia.seo.og-description")}
         ogImage="https://lovable.dev/opengraph-image-p98pqg.png"
         ogUrl="https://origin.africa/projects/cortexia"
         ogType="website"
         twitterCard="summary_large_image"
-        twitterTitle="Cortexia – L’IA créative africaine"
-        twitterDescription="Cortexia est la première plateforme IA sociale africaine dédiée à la création artistique intelligente."
+        twitterTitle={t("cortexia.seo.twitter-title")}
+        twitterDescription={t("cortexia.seo.twitter-description")}
         twitterImage="https://lovable.dev/opengraph-image-p98pqg.png"
         canonicalUrl="https://origin.africa/projects/cortexia"
         schema={projectSchema}
@@ -105,11 +108,11 @@ const Cortexia = () => {
         <nav className="mb-6">
           <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
             <li>
-              <Link to="/" className="hover:text-foreground">Accueil</Link>
+              <Link to="/" className="hover:text-foreground">{t("nav.home")}</Link>
             </li>
             <li className="text-muted-foreground">/</li>
             <li>
-              <Link to="/projects" className="hover:text-foreground">Projets</Link>
+              <Link to="/projects" className="hover:text-foreground">{t("nav.projects")}</Link>
             </li>
             <li className="text-muted-foreground">/</li>
             <li className="text-foreground">Cortexia</li>
@@ -127,14 +130,14 @@ const Cortexia = () => {
             </div>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Cortexia : L'IA créative qui fusionne art et intelligence
+            {t("cortexia.hero.title")}
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            La première plateforme mobile-first africaine qui permet de créer, partager et découvrir des œuvres générées par IA, dans une expérience sociale et communautaire unique.
+            {t("cortexia.hero.description")}
           </p>
           <Button size="lg" asChild>
             <a href={cortexiaUrl} target="_blank" rel="noopener noreferrer">
-              Explorer Cortexia
+              {t("cortexia.hero.cta")}
             </a>
           </Button>
         </div>
@@ -143,20 +146,20 @@ const Cortexia = () => {
         <div className="bg-muted rounded-2xl p-6 sm:p-8 md:p-12 mb-16 sm:mb-20">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-lg sm:text-xl mb-6">
-              <strong>Cortexia</strong> est une plateforme innovante qui combine <strong>intelligence artificielle</strong>, <strong>création visuelle</strong> et <strong>interaction sociale</strong>.
+              <strong>Cortexia</strong> {t("cortexia.description.line1")}
             </p>
             <p className="text-muted-foreground mb-6 text-lg">
-              Elle offre un espace où les utilisateurs peuvent générer, partager et découvrir des contenus visuels propulsés par l'IA, tout en interagissant avec une communauté créative dynamique.
+              {t("cortexia.description.line2")}
             </p>
             <p className="text-muted-foreground text-lg">
-              Pensée pour les <strong>créateurs africains</strong> et au-delà, Cortexia redéfinit la frontière entre art et technologie, en rendant la création accessible à tous, sans compétences techniques.
+              {t("cortexia.description.line3")}
             </p>
           </div>
         </div>
 
         {/* Features Section */}
         <div className="mb-16 sm:mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Fonctionnalités principales</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">{t("cortexia.features.title")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="bg-background border">
@@ -176,7 +179,7 @@ const Cortexia = () => {
 
         {/* UX Section */}
         <div className="mb-16 sm:mb-20 bg-muted rounded-2xl p-6 sm:p-8 md:p-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Expérience utilisateur</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">{t("cortexia.ux.title")}</h2>
           <div className="max-w-3xl mx-auto">
             <ul className="space-y-4">
               {uxFeatures.map((feature, index) => (
@@ -193,7 +196,7 @@ const Cortexia = () => {
 
         {/* Value Proposition Section */}
         <div className="mb-16 sm:mb-20">
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Valeur ajoutée par cible</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">{t("cortexia.value-propositions.title")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {valuePropositions.map((item, index) => (
               <Card key={index} className="bg-background border">
@@ -210,7 +213,7 @@ const Cortexia = () => {
 
         {/* External Link Section */}
         <div className="mb-16 sm:mb-20 text-center">
-          <p className="text-muted-foreground mb-4">Découvrez Cortexia en ligne</p>
+          <p className="text-muted-foreground mb-4">{t("cortexia.external-link.description")}</p>
           <a 
             href={cortexiaUrl} 
             target="_blank" 
@@ -225,14 +228,14 @@ const Cortexia = () => {
         <div className="text-center bg-muted rounded-2xl p-8 sm:p-12">
           <div className="max-w-3xl mx-auto">
             <p className="text-xl sm:text-2xl italic mb-8">
-              Cortexia incarne la créativité africaine augmentée par l'intelligence artificielle.
+              {t("cortexia.final-cta.quote")}
             </p>
             <p className="text-lg sm:text-xl text-muted-foreground mb-8">
-              Découvrez la puissance d'une génération nouvelle où l'imagination devient réalité.
+              {t("cortexia.final-cta.description")}
             </p>
             <Button size="lg" className="text-lg px-8 py-6" asChild>
               <a href={cortexiaUrl} target="_blank" rel="noopener noreferrer">
-                Découvrir Cortexia maintenant
+                {t("cortexia.final-cta.cta")}
               </a>
             </Button>
           </div>

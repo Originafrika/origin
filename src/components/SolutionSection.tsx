@@ -1,35 +1,30 @@
 import { Cpu, GraduationCap, Users2, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const solutions = [
-  {
-    icon: Cpu,
-    title: "Accès aux outils SOTA",
-    description:
-      "Modèles IA de pointe, APIs avancées, et ressources technologiques adaptées au contexte africain. Tout ce dont vous avez besoin pour innover sans limite.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Formation & Mentorat",
-    description:
-      "Tutoriels spécialisés, guides pratiques, et accompagnement personnalisé par des experts. Apprenez des meilleurs et développez vos compétences rapidement.",
-  },
-  {
-    icon: Users2,
-    title: "Communauté des Visionnaires",
-    description:
-      "Forums actifs, hackathons stimulants, challenges créatifs, et un réseau panafricain de talents. Connectez-vous avec ceux qui partagent votre vision.",
-  },
-  {
-    icon: Rocket,
-    title: "Projets Open-Source",
-    description:
-      "Contribuez à des projets africains innovants, partagez vos créations, et construisez ensemble l'avenir technologique du continent.",
-  },
-];
-
-const SolutionSection = () => {
+const SolutionSectionContent = () => {
+  const { t } = useLanguage();
+  
+  const solutions = [
+    {
+      title: t("solution.accessibility.title"),
+      description: t("solution.accessibility.description"),
+    },
+    {
+      title: t("solution.independence.title"),
+      description: t("solution.independence.description"),
+    },
+    {
+      title: t("solution.community.title"),
+      description: t("solution.community.description"),
+    },
+    {
+      title: t("solution.innovation.title"),
+      description: t("solution.innovation.description"),
+    },
+  ];
+  
   return (
     <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-background">
       <div className="container px-4 sm:px-6 mx-auto">
@@ -37,11 +32,8 @@ const SolutionSection = () => {
           {/* Section header */}
           <div className="text-center space-y-3 sm:space-y-4 animate-fade-in">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight px-2">
-              Tout ce dont un visionnaire africain a besoin pour innover
+              {t("solution.title")}
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-              ORIGIN vous donne accès à un écosystème complet conçu pour transformer vos idées en réalité
-            </p>
           </div>
 
           {/* Solutions grid */}
@@ -53,9 +45,6 @@ const SolutionSection = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <CardHeader className="p-4 sm:p-6">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-foreground text-background flex items-center justify-center mb-3 sm:mb-4">
-                    <solution.icon className="h-5 w-5 sm:h-6 sm:w-6" />
-                  </div>
                   <CardTitle className="text-lg sm:text-xl md:text-2xl">
                     {solution.title}
                   </CardTitle>
@@ -72,13 +61,17 @@ const SolutionSection = () => {
           {/* CTA */}
           <div className="text-center pt-6 sm:pt-8 animate-fade-in px-4">
             <Button size="lg" variant="outline" className="text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 hover-lift w-full sm:w-auto">
-              Accédez aux outils et rejoignez le mouvement
+              {t("solution.cta")}
             </Button>
           </div>
         </div>
       </div>
     </section>
   );
+};
+
+const SolutionSection = () => {
+  return <SolutionSectionContent />;
 };
 
 export default SolutionSection;
